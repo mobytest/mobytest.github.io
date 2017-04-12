@@ -39,6 +39,15 @@
         })
       );
 
+      search.addWidget(
+      instantsearch.widgets.stats({
+      container: '#stats',
+      templates: {
+        item: '<div>You have {{nbHits}} results, fetched in {{processingTimeMS}}ms.</div>'
+      }
+      })
+      );
+
 
       search.start();
     </script>

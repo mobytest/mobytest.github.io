@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" />
+    <title>instantsearch.js basics</title>
+  </head>
+  <body>
+    <input type="text" id="search-box" />
+    <div id="hits-container"></div>
+    <div id="pagination-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+    <script>
+      var search = instantsearch({
+        appId: 'YourApplicationID',
+        apiKey: 'YourSearchOnlyAPIKey',
+        indexName: 'YourIndexName'
+      });
+
+      search.addWidget(
+        instantsearch.widgets.searchBox({
+          container: '#search-box',
+          placeholder: 'Search for products...'
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.hits({
+          container: '#hits-container',
+          templates: {
+            item: 'Hit {{objectID}}: FIXME'
+          }
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.pagination({
+          container: '#pagination-container'
+        })
+      );
+
+      search.start();
+    </script>
+  </body>
+</html>

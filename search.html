@@ -6,8 +6,10 @@
   </head>
   <body>
     <input type="text" id="search-box" />
+    <div id="stats-container"></div>
     <div id="hits-container"></div>
     <div id="pagination-container"></div>
+    
 
     <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
     <script>
@@ -42,8 +44,6 @@
       search.addWidget(
       instantsearch.widgets.stats({
       container: '#stats-container',
-      templates: {
-        item: '<div>You have {{nbHits}} results, fetched in {{processingTimeMS}}ms.</div>'
       }
       })
       );

@@ -40,10 +40,13 @@
       );
 
       search.addWidget(
-        instantsearch.widgets.stats({
-          container: '#stats-container'
-        })
-      );
+    instantsearch.widgets.stats({
+      container: '#stats',
+      templates: {
+        body: '<div>You have {{nbHits}} results, fetched in {{processingTimeMS}}ms.</div>'
+      }
+    })
+  );
 
       search.start();
     </script>
